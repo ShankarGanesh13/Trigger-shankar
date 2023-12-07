@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:trigger/screens/home_screen/home_screen_provider.dart';
 import 'package:trigger/services/shared_preference_service.dart';
 import 'package:trigger/utils/colors.dart';
 
@@ -11,7 +13,8 @@ class Widget4 extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        SharedPreferencesService.resetScore(context);
+        Provider.of<HomeScreenProvider>(context, listen: false)
+            .resetScore(context: context);
       },
       child: Container(
         height: 50,

@@ -16,6 +16,13 @@ class HomeScreenProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  void resetScore({required BuildContext context}) {
+    successCount = 0;
+    SharedPreferencesService.resetScore(context);
+
+    notifyListeners();
+  }
+
   Future<void> loadSuccessCount() async {
     successCount = await SharedPreferencesService.loadSuccessCount();
     notifyListeners();
